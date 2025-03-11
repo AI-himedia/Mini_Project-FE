@@ -3,6 +3,11 @@
 
 .Home_Header {
     margin: 5% 0 1.5% 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Home_Header_Container {
 }
 
 .Home_Date {
@@ -18,6 +23,10 @@
 
 .Home_Description {
     color: #605f5c;
+}
+
+.logo img {
+    width: 6rem;
 }
 
 /* Content */
