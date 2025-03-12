@@ -4,10 +4,16 @@ import "../styles/pages/Home.css";
 // React
 import { useState } from "react";
 
+// OCR API 요청
+import { getOCR } from "../api/CLOVAApi";
+
 // Router
 import { Link } from "react-router-dom";
 
 const Home = () => {
+    // OCR 결과 저장
+    const [ocrText, setOcrText] = useState("");
+
     // 비활성화 메시지 변수
     const [warningMessage, setWarningMessage] = useState("");
 
@@ -41,7 +47,7 @@ const Home = () => {
     const [selectedFiles, setSelectedFiles] = useState([]);
 
     // 파일 선택 핸들러 (최대 3장까지 추가 가능)
-    const handleFileChange = (event) => {
+    const handleFileChange = async (event) => {
         const files = Array.from(event.target.files);
         if (selectedFiles.length + files.length > 3) {
             setWarningMessage("📌 최대 3장의 이미지만 선택할 수 있습니다.");
@@ -49,8 +55,18 @@ const Home = () => {
         }
 
         setSelectedFiles((prevFiles) => [...prevFiles, ...files.map((file) => file.name)]);
-        setDiaryText("");
+        setDiaryText(""); // 기존 텍스트 비우기
         setWarningMessage("📌 텍스트 입력이 비활성화되었습니다. 사진을 삭제하면 작성할 수 있습니다.");
+
+        // OCR API 호출 (첫 번째 파일만 분석)
+        if (files.length > 0) {
+            const ocrResult = await getOCR(files[0]);
+            if (ocrResult && ocrResult.images[0].fields.length > 0) {
+                // OCR 결과에서 추출한 텍스트를 textarea에 자동 입력
+                const extractedText = ocrResult.images[0].fields.map((field) => field.inferText).join(" ");
+                setDiaryText(extractedText);
+            }
+        }
     };
 
     // 개별 파일 삭제 핸들러
