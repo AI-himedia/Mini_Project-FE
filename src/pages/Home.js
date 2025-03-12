@@ -37,7 +37,7 @@ const Home = () => {
         setDiaryText(event.target.value);
         if (event.target.value.length > 0) {
             setSelectedFiles([]);
-            setWarningMessage("📌 사진 선택이 비활성화되었습니다. 텍스트를 지우면 선택할 수 있습니다.");
+            setWarningMessage("사진 선택이 비활성화되었습니다. 텍스트를 지우면 선택할 수 있습니다.");
         } else {
             setWarningMessage("");
         }
@@ -50,13 +50,13 @@ const Home = () => {
     const handleFileChange = async (event) => {
         const files = Array.from(event.target.files);
         if (selectedFiles.length + files.length > 3) {
-            setWarningMessage("📌 최대 3장의 이미지만 선택할 수 있습니다.");
+            setWarningMessage("최대 3장의 이미지만 선택할 수 있습니다.");
             return;
         }
 
         setSelectedFiles((prevFiles) => [...prevFiles, ...files.map((file) => file.name)]);
-        setDiaryText(""); // 기존 텍스트 비우기
-        setWarningMessage("📌 텍스트 입력이 비활성화되었습니다. 사진을 삭제하면 작성할 수 있습니다.");
+        setDiaryText("");
+        setWarningMessage("텍스트 입력이 비활성화되었습니다. 사진을 삭제하면 작성할 수 있습니다.");
 
         // OCR API 호출 (첫 번째 파일만 분석)
         if (files.length > 0) {
