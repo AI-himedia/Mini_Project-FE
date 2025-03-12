@@ -119,16 +119,6 @@ const Home = () => {
                     추출하기
                 </button>
             </div>
-
-            {/* Segmentation 결과 표시 */}
-            {/* {segments.length > 0 && (
-                <div className="Segmentation_Result">
-                    <h3>📌 AI가 분석한 문단</h3>
-                    {segments.map((segment, index) => (
-                        <p key={index}>{segment}</p>
-                    ))}
-                </div>
-            )} */}
         </div>
     );
 };
