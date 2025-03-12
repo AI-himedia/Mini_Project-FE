@@ -83,6 +83,18 @@
     border-radius: 5px;
     padding: 10px;
     box-sizing: border-box;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.Character_Count {
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+    font-size: 12px;
+    color: gray;
 }
 
 .Home_Diary_Content {
@@ -123,8 +135,11 @@
     flex-shrink: 0;
 }
 
-.Request_Button:hover {
-    background-color: #c2c2c2;
+.Request_Button:hover,
+.File_Button:hover {
+    background-color: #d7d7d7;
+    color: #1f1f1f;
+    /* border: 1px solid #bdbdbd; */
 }
 
 .Request_Button.disabled {
@@ -161,6 +176,12 @@
     border: 1px solid #bbb;
 }
 
+.File_Item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .File_List {
     max-height: 150px;
     overflow-y: auto;
@@ -171,9 +192,22 @@
     display: none;
 }
 
-.File_Name {
+/* .File_Name {
+    align-self: center;
     font-size: 1rem;
     color: #30302f;
+} */
+
+.File_Button_Container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.File_Divider {
+    font-size: 1.5rem;
+    font-weight: 100;
+    color: #888;
 }
 
 .File_Empty {
@@ -195,3 +229,5 @@
     font-size: 10px;
     margin: 0 0 0 10px;
 }
+
+/* 다크모드 */

@@ -2,6 +2,7 @@
 
 import axiosInstance from "./AxiosInstance";
 
+// OCR
 export const getOCR = async (imageFile) => {
     try {
         const formData = new FormData();
