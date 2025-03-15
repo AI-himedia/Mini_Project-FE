@@ -1,3 +1,5 @@
+// src/pages.Home.js
+
 // Css
 import "../styles/pages/Home.css";
 
@@ -5,13 +7,14 @@ import "../styles/pages/Home.css";
 import { useState, useRef } from "react";
 
 // OCR API 요청
-import { getOCR } from "../api/CLOVAApi";
+import { getOCR } from "../api/FestApi";
 
 // Router
 import { Link } from "react-router-dom";
 
 // Spinner
 import { useLoading } from "../contexts/LoadingContext";
+import SummaryModal from "../components/SummaryModal";
 
 const Home = () => {
     const fileInputRef = useRef(null);
@@ -29,7 +32,28 @@ const Home = () => {
     // 상태 관리
     const [diaryText, setDiaryText] = useState("");
     const [isFileSelected, setIsFileSelected] = useState(false);
-    const [segments, setSegments] = useState([]);
+    const [error, setError] = useState(null);
+    const [summaryResult, setSummaryResult] = useState(null);
+    const [isSummarizing, setIsSummarizing] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    // 요약 요청 핸들러
+    const handleSummarize = async () => {
+        // if (diaryText.trim().length === 0) return;
+        // setIsSummarizing(true);
+        // setError(null);
+        // try {
+        //     const result = await SummarizeText(diaryText);
+        //     if (result && result.length > 0) {
+        //         setSummaryResult(result.map((item) => item.generated_text).join("\n\n"));
+        //         setIsModalOpen(true);
+        //     }
+        // } catch (error) {
+        //     setError("요약 요청 중 오류가 발생했습니다.");
+        // } finally {
+        //     setIsSummarizing(false);
+        // }
+    };
 
     // 파일 선택 핸들러
     const handleFileChange = async (event) => {
@@ -38,15 +62,20 @@ const Home = () => {
 
         setIsFileSelected(true);
         setIsLoading(true);
+        setError(null);
 
         try {
             const ocrResult = await getOCR(file);
-            if (ocrResult?.images[0]?.fields.length > 0) {
-                const extractedText = ocrResult.images[0].fields.map((field) => field.inferText).join(" ");
-                setDiaryText((prevText) => prevText + (prevText ? "\n" : "") + extractedText);
+            console.log("OCR 결과 확인:", ocrResult);
+            if (ocrResult?.text) {
+                setDiaryText((prevText) => prevText + (prevText ? "\n" : "") + ocrResult.text);
+            } else {
+                console.log("OCR 결과 없음:", ocrResult);
+                setError("OCR 결과를 받아오지 못했습니다.");
             }
         } catch (error) {
             console.error("OCR 처리 중 오류 발생:", error);
+            setError("OCR 처리 중 오류가 발생했습니다. 다시 시도해주세요.");
         } finally {
             setIsLoading(false);
             setIsFileSelected(false);
@@ -68,6 +97,8 @@ const Home = () => {
                     </Link>
                 </div>
             </div>
+
+            {error && <div className="error">{error}</div>}
 
             {/* Content */}
             <div className="Home_Content">
@@ -115,9 +146,16 @@ const Home = () => {
                 </div>
 
                 {/* 추출하기 버튼 */}
-                <button className="Request_Button" disabled={diaryText.length === 0}>
-                    추출하기
+                <button
+                    className="Request_Button"
+                    onClick={handleSummarize}
+                    disabled={diaryText.length === 0 || isSummarizing}
+                >
+                    {isSummarizing ? "요약 중..." : "AI 그림 받기"}
                 </button>
+
+                {/* 모달 추가 */}
+                <SummaryModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} summary={summaryResult} />
             </div>
         </div>
     );
