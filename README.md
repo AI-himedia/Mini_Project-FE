@@ -11,15 +11,15 @@
 - **AI 이미지 생성**: 각 문단의 내용을 반영한 그림을 자동으로 생성합니다.
 
 ## 기술 스택
-- **프로그래밍 언어**: Python
-- **텍스트 처리**: OCR (Tesseract, EasyOCR)
-- **이미지 생성**: Stable Diffusion, DALL·E
-- **웹 프레임워크**: Flask / FastAPI
-- **프론트엔드**: React (Next.js) 또는 Vue.js
+- **프로그래밍 언어**: BE: Python | FE: React.js
+- **텍스트 처리**: OCR(무료) or Naver CLOVA OCR(유료)
+- **이미지 생성**: thibaud/sdxl_dpo_turbo, etri-vilab/koala-700m-llava-cap, sd-community/sdxl-flash AI Model
+- **웹 프레임워크**: FastAPI
+- **프론트엔드**: React.js
 
 ## 사용 방법
-1. 사용자가 일기 이미지를 업로드합니다.
-2. OCR이 텍스트를 추출하고, 이를 AI가 3개 문단으로 요약합니다.
+1. 사용자가 일기 작성하거나 이미지를 업로드합니다.
+2. OCR이 텍스트를 추출하고, 버튼(AI 그림받기)을 이용해 AI가 3개 문단으로 요약합니다.
 3. 각 문단을 기반으로 AI가 그림을 생성합니다.
 4. 결과 화면에서 요약된 일기와 함께 생성된 이미지를 확인할 수 있습니다.
 
@@ -29,16 +29,15 @@
 git clone https://github.com/your-repo/ai-diary.git
 cd ai-diary
 
-# 가상 환경 설정 (선택 사항)
-python -m venv venv
-source venv/bin/activate  # Mac/Linux
-venv\Scripts\activate  # Windows
+# 가상 환경 설정 (선택 사항) [개발 기준: MiniForge3]
+conda create --name ai-diary-env python=3.12
+conda activate ai-diary-env
 
 # 필수 패키지 설치
 pip install -r requirements.txt
 
 # 애플리케이션 실행
-python app.py
+`python app.py` or `uvicorn main:app --host 0.0.0.0 --port 8000 --reload`
 ```
 
 ## 기여 방법
