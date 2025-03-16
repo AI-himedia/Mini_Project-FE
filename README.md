@@ -32,27 +32,27 @@
 ### 백엔드
 <p align="center">
   <a href="https://github.com/jinnni91">
-    <img src="https://github.com/jinnni91" width="100px" style="border-radius: 50%;" />
+    <img src="https://github.com/jinnni91.png" width="100px" style="border-radius: 50%;" />
   </a>
   <br />
   <b>백엔드</b>
   <a href="https://github.com/ppochacco">
-    <img src="https://github.com/ppochacco" width="100px" style="border-radius: 50%;" />
+    <img src="https://github.com/ppochacco.png" width="100px" style="border-radius: 50%;" />
   </a>
   <br />
   <b>백엔드</b>
   <a href="https://github.com/won24">
-    <img src="https://github.com/won24" width="100px" style="border-radius: 50%;" />
+    <img src="https://github.com/won24.png" width="100px" style="border-radius: 50%;" />
   </a>
   <br />
   <b>백엔드</b>
   <a href="https://github.com/NJ-KIM11">
-    <img src="https://github.com/NJ-KIM11" width="100px" style="border-radius: 50%;" />
+    <img src="https://github.com/NJ-KIM11.png" width="100px" style="border-radius: 50%;" />
   </a>
   <br />
   <b>백엔드</b>
   <a href="https://github.com/kimsegwang">
-    <img src="https://github.com/kimsegwang" width="100px" style="border-radius: 50%;" />
+    <img src="https://github.com/kimsegwang.png" width="100px" style="border-radius: 50%;" />
   </a>
   <br />
   <b>백엔드</b>
