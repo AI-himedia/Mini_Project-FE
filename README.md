@@ -26,16 +26,36 @@
     <img src="https://github.com/dijeungi.png" width="100px" style="border-radius: 50%;" />
   </a>
   <br />
-  <b>Frontend Developer</b>
+  <b>프론트엔드</b>
 </p>
 
 ### 백엔드
 <p align="center">
-  <a href="https://github.com/backend-dev-profile">
-    <img src="https://github.com/backend-dev-profile.png" width="100px" style="border-radius: 50%;" />
+  <a href="https://github.com/jinnni91">
+    <img src="https://github.com/jinnni91" width="100px" style="border-radius: 50%;" />
   </a>
   <br />
-  <b>Backend Developer</b>
+  <b>백엔드</b>
+  <a href="https://github.com/ppochacco">
+    <img src="https://github.com/ppochacco" width="100px" style="border-radius: 50%;" />
+  </a>
+  <br />
+  <b>백엔드</b>
+  <a href="https://github.com/won24">
+    <img src="https://github.com/won24" width="100px" style="border-radius: 50%;" />
+  </a>
+  <br />
+  <b>백엔드</b>
+  <a href="https://github.com/NJ-KIM11">
+    <img src="https://github.com/NJ-KIM11" width="100px" style="border-radius: 50%;" />
+  </a>
+  <br />
+  <b>백엔드</b>
+  <a href="https://github.com/kimsegwang">
+    <img src="https://github.com/kimsegwang" width="100px" style="border-radius: 50%;" />
+  </a>
+  <br />
+  <b>백엔드</b>
 </p>
 
 
