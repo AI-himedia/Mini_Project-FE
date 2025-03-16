@@ -20,17 +20,20 @@
 - **프론트엔드**: React.js
 
 ## 개발팀 소개
+
 ### 프론트엔드
 <div style="display: flex; align-items: center; gap: 10px;">
-  <a href="https://github.com/dijeungi">
-    <img src="https://github.com/dijeungi.png" width="100px" style="border-radius: 50%;" />
-  </a>
-  <br />
-  <b>프론트엔드</b>
+  <div style="text-align: center;">
+    <a href="https://github.com/dijeungi">
+      <img src="https://github.com/dijeungi.png" width="100px" style="border-radius: 50%;" />
+    </a>
+    <br />
+    <b>프론트엔드</b>
+  </div>
 </div>
 
 ### 백엔드
-<div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+<div style="display: flex; align-items: center; gap: 20px;">
   <div style="text-align: center;">
     <a href="https://github.com/jinnni91">
       <img src="https://github.com/jinnni91.png" width="100px" style="border-radius: 50%;" />
