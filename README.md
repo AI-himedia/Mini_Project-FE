@@ -19,6 +19,26 @@
 - **웹 프레임워크**: FastAPI
 - **프론트엔드**: React.js
 
+## 개발팀 소개
+### 프론트엔드
+<p align="center">
+  <a href="https://github.com/frontend-dev-profile">
+    <img src="https://github.com/frontend-dev-profile.png" width="100px" style="border-radius: 50%;" />
+  </a>
+  <br />
+  <b>Frontend Developer</b>
+</p>
+
+### 백엔드
+<p align="center">
+  <a href="https://github.com/backend-dev-profile">
+    <img src="https://github.com/backend-dev-profile.png" width="100px" style="border-radius: 50%;" />
+  </a>
+  <br />
+  <b>Backend Developer</b>
+</p>
+
+
 ## 사용 방법
 1. 사용자가 일기 작성하거나 이미지를 업로드합니다.
 2. OCR이 텍스트를 추출하고, 버튼(AI 그림받기)을 이용해 AI가 3개 문단으로 요약합니다.
