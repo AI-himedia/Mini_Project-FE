@@ -3,7 +3,7 @@
 import axiosInstance from "./AxiosInstance";
 
 // OCR
-export const getOCR = async (imageFile) => {
+export const getCLOVA = async (imageFile) => {
     try {
         const formData = new FormData();
         const message = {
@@ -19,7 +19,7 @@ export const getOCR = async (imageFile) => {
             formData,
             {
                 headers: {
-                    "X-OCR-SECRET": "VGFvV2tOSWN0Q09nVUpTUEZTS0t1aEpHdmZTdVpXVkI=",
+                    "X-OCR-SECRET": process.env.REACT_APP_CLOVA_OCR,
                     "Content-Type": "multipart/form-data",
                 },
                 withCredentials: false,
