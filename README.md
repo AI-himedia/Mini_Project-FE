@@ -1,6 +1,8 @@
 # AI가 그려주는 내 하루
 
-![AI가 그려주는 내 하루](https://aicreation-file.miricanvas.com/private/txt2img/2025/03/16/18/3d5b0fc8-b297-434c-bdf3-4482ad8c582b.jpg?mode=modal#center)
+<p align="center">
+  <img src="https://aicreation-file.miricanvas.com/private/txt2img/2025/03/16/18/3d5b0fc8-b297-434c-bdf3-4482ad8c582b.jpg?mode=modal" width="500px" />
+</p>
 
 ## 프로젝트 개요
 **AI가 그려주는 내 하루**는 사용자의 일기를 분석하여 텍스트를 요약하고, 각 문단에 어울리는 이미지를 생성하는 프로젝트입니다. OCR(광학 문자 인식) 기술을 활용하여 손글씨 또는 타이핑된 일기 내용을 분석하고, 이를 AI 기반 이미지 생성 모델을 통해 시각적으로 표현합니다.
