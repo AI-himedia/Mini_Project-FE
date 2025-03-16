@@ -2,7 +2,7 @@
 
 import axiosInstance from "./AxiosInstance";
 
-// OCR
+// Naver CLOVA OCR
 export const getCLOVA = async (imageFile) => {
     try {
         const formData = new FormData();
@@ -15,7 +15,7 @@ export const getCLOVA = async (imageFile) => {
         formData.append("message", JSON.stringify(message));
         formData.append("file", imageFile);
         const response = await axiosInstance.post(
-            `https://ehbgjflqfc.apigw.ntruss.com/custom/v1/39277/744a0c5c41be6adeaa7d421a76da4f5bd8219f1869aa7a25de3bf51b25700c88/general`,
+            `https://ehbgjflqfc.apigw.ntruss.com/custom/v1/39277/${process.env.REACT_APP_CLOVA_URL}/general`,
             formData,
             {
                 headers: {

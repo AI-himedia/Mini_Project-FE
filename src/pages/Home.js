@@ -112,10 +112,23 @@ const Home = () => {
         }
     };
 
-    const handleProcessOCR = () => {
+    // 정확한 Home.js 수정예시
+    const handleProcessOCR = async (file) => {
         setIsPaymentSuccessModalOpen(false);
-        if (fileInputRef.current) {
-            fileInputRef.current.click();
+        setIsLoading(true);
+
+        try {
+            const ocrResult = await getCLOVA(file);
+            if (ocrResult?.images?.[0]?.inferResult === "SUCCESS") {
+                const texts = ocrResult.images[0].fields.map((field) => field.inferText).join(" ");
+                setDiaryText((prev) => prev + (prev ? "\n" : "") + texts);
+            } else {
+                setError("유료 OCR 결과를 받아오지 못했습니다.");
+            }
+        } catch (error) {
+            setError("유료 OCR 처리 중 오류가 발생했습니다. 다시 시도해주세요.");
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -174,15 +187,17 @@ const Home = () => {
         setIsLoading(true);
 
         try {
-            const ocrResult = await getCLOVA(file, "premium");
+            const ocrResult = await getCLOVA(file);
             console.log("유료 OCR 결과 확인:", ocrResult);
 
-            if (ocrResult?.text) {
-                setDiaryText((prevText) => prevText + (prevText ? "\n" : "") + ocrResult.text);
+            if (ocrResult?.images?.[0]?.inferResult === "SUCCESS") {
+                const texts = ocrResult.images[0].fields.map((field) => field.inferText).join(" ");
+                setDiaryText((prevText) => prevText + (prevText ? "\n" : "") + texts);
             } else {
                 setError("유료 OCR 결과를 받아오지 못했습니다.");
             }
         } catch (error) {
+            console.error(error);
             setError("유료 OCR 처리 중 오류가 발생했습니다. 다시 시도해주세요.");
         } finally {
             setIsLoading(false);

@@ -1,7 +1,7 @@
 // src/api/FestApi.js
 import axiosInstance from "./AxiosInstance";
 
-// 1. OCR
+// AI Model OCR (Python FestAPI)
 export const getOCR = async (imageFile) => {
     try {
         const formData = new FormData();
