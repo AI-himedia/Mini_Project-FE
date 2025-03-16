@@ -1,2 +1,49 @@
 # AI가 그려주는 내 하루
-<img src="https://aicreation-file.miricanvas.com/private/txt2img/2025/03/16/18/3d5b0fc8-b297-434c-bdf3-4482ad8c582b.jpg?mode=modal" />
+
+![AI가 그려주는 내 하루](https://aicreation-file.miricanvas.com/private/txt2img/2025/03/16/18/3d5b0fc8-b297-434c-bdf3-4482ad8c582b.jpg?mode=modal#center)
+
+## 프로젝트 개요
+**AI가 그려주는 내 하루**는 사용자의 일기를 분석하여 텍스트를 요약하고, 각 문단에 어울리는 이미지를 생성하는 프로젝트입니다. OCR(광학 문자 인식) 기술을 활용하여 손글씨 또는 타이핑된 일기 내용을 분석하고, 이를 AI 기반 이미지 생성 모델을 통해 시각적으로 표현합니다.
+
+## 주요 기능
+- **OCR을 통한 텍스트 인식**: 사용자가 업로드한 일기의 내용을 디지털 텍스트로 변환합니다.
+- **문단별 요약**: 일기를 3개의 핵심 문단으로 분리하여 정리합니다.
+- **AI 이미지 생성**: 각 문단의 내용을 반영한 그림을 자동으로 생성합니다.
+
+## 기술 스택
+- **프로그래밍 언어**: Python
+- **텍스트 처리**: OCR (Tesseract, EasyOCR)
+- **이미지 생성**: Stable Diffusion, DALL·E
+- **웹 프레임워크**: Flask / FastAPI
+- **프론트엔드**: React (Next.js) 또는 Vue.js
+
+## 사용 방법
+1. 사용자가 일기 이미지를 업로드합니다.
+2. OCR이 텍스트를 추출하고, 이를 AI가 3개 문단으로 요약합니다.
+3. 각 문단을 기반으로 AI가 그림을 생성합니다.
+4. 결과 화면에서 요약된 일기와 함께 생성된 이미지를 확인할 수 있습니다.
+
+## 실행 방법
+```bash
+# 프로젝트 클론
+git clone https://github.com/your-repo/ai-diary.git
+cd ai-diary
+
+# 가상 환경 설정 (선택 사항)
+python -m venv venv
+source venv/bin/activate  # Mac/Linux
+venv\Scripts\activate  # Windows
+
+# 필수 패키지 설치
+pip install -r requirements.txt
+
+# 애플리케이션 실행
+python app.py
+```
+
+## 기여 방법
+1. 이 저장소를 포크합니다.
+2. 새로운 기능을 추가한 후 PR을 생성해주세요.
+
+## 라이선스
+이 프로젝트는 MIT 라이선스를 따릅니다.
