@@ -21,7 +21,7 @@
 
 ## 개발팀 소개
 ### 프론트엔드
-<div style="display: flex; align-items: center;">
+<div style="display: flex; align-items: center; gap: 10px;">
   <a href="https://github.com/dijeungi">
     <img src="https://github.com/dijeungi.png" width="100px" style="border-radius: 50%;" />
   </a>
@@ -30,42 +30,43 @@
 </div>
 
 ### 백엔드
-<div style="display: flex; align-items: center; gap: 10px;">
-  <a href="https://github.com/jinnni91">
-    <img src="https://github.com/jinnni91.png" width="100px" style="border-radius: 50%;" />
-  </a>
-  <br />
-  <b>김현진</b>
+<div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+  <div style="text-align: center;">
+    <a href="https://github.com/jinnni91">
+      <img src="https://github.com/jinnni91.png" width="100px" style="border-radius: 50%;" />
+    </a>
+    <br />
+    <b>김현진</b>
+  </div>
+  <div style="text-align: center;">
+    <a href="https://github.com/ppochacco">
+      <img src="https://github.com/ppochacco.png" width="100px" style="border-radius: 50%;" />
+    </a>
+    <br />
+    <b>정우선</b>
+  </div>
+  <div style="text-align: center;">
+    <a href="https://github.com/won24">
+      <img src="https://github.com/won24.png" width="100px" style="border-radius: 50%;" />
+    </a>
+    <br />
+    <b>진원</b>
+  </div>
+  <div style="text-align: center;">
+    <a href="https://github.com/NJ-KIM11">
+      <img src="https://github.com/NJ-KIM11.png" width="100px" style="border-radius: 50%;" />
+    </a>
+    <br />
+    <b>김남준</b>
+  </div>
+  <div style="text-align: center;">
+    <a href="https://github.com/kimsegwang">
+      <img src="https://github.com/kimsegwang.png" width="100px" style="border-radius: 50%;" />
+    </a>
+    <br />
+    <b>김세광</b>
+  </div>
 </div>
-<div style="display: flex; align-items: center; gap: 10px;">
-  <a href="https://github.com/ppochacco">
-    <img src="https://github.com/ppochacco.png" width="100px" style="border-radius: 50%;" />
-  </a>
-  <br />
-  <b>정우선</b>
-</div>
-<div style="display: flex; align-items: center; gap: 10px;">
-  <a href="https://github.com/won24">
-    <img src="https://github.com/won24.png" width="100px" style="border-radius: 50%;" />
-  </a>
-  <br />
-  <b>진원</b>
-</div>
-<div style="display: flex; align-items: center; gap: 10px;">
-  <a href="https://github.com/NJ-KIM11">
-    <img src="https://github.com/NJ-KIM11.png" width="100px" style="border-radius: 50%;" />
-  </a>
-  <br />
-  <b>김남준</b>
-</div>
-<div style="display: flex; align-items: center; gap: 10px;">
-  <a href="https://github.com/kimsegwang">
-    <img src="https://github.com/kimsegwang.png" width="100px" style="border-radius: 50%;" />
-  </a>
-  <br />
-  <b>김세광</b>
-</div>
-
 
 ## 사용 방법
 1. 사용자가 일기 작성하거나 이미지를 업로드합니다.
