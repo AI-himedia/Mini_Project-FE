@@ -22,8 +22,8 @@
 ## 개발팀 소개
 ### 프론트엔드
 <p align="center">
-  <a href="https://github.com/frontend-dev-profile">
-    <img src="https://github.com/frontend-dev-profile.png" width="100px" style="border-radius: 50%;" />
+  <a href="https://github.com/dijeungi">
+    <img src="https://github.com/dijeungi.png" width="100px" style="border-radius: 50%;" />
   </a>
   <br />
   <b>Frontend Developer</b>
