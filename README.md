@@ -36,21 +36,29 @@
   </a>
   <br />
   <b>백엔드</b>
+</p>
+<p align="center">
   <a href="https://github.com/ppochacco">
     <img src="https://github.com/ppochacco.png" width="100px" style="border-radius: 50%;" />
   </a>
   <br />
   <b>백엔드</b>
+  </p>
+  <p align="center">
   <a href="https://github.com/won24">
     <img src="https://github.com/won24.png" width="100px" style="border-radius: 50%;" />
   </a>
   <br />
   <b>백엔드</b>
+    </p>
+    <p align="center">
   <a href="https://github.com/NJ-KIM11">
     <img src="https://github.com/NJ-KIM11.png" width="100px" style="border-radius: 50%;" />
   </a>
   <br />
   <b>백엔드</b>
+      </p>
+      <p align="center">
   <a href="https://github.com/kimsegwang">
     <img src="https://github.com/kimsegwang.png" width="100px" style="border-radius: 50%;" />
   </a>
