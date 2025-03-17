@@ -6,6 +6,8 @@ import "../styles/pages/Home.css";
 // React
 import { useState, useRef } from "react";
 
+import ImageDisplay from "./ImageDisplay";
+
 // Components
 import FileOptionModal from "../components/FileOptionModal";
 
@@ -13,16 +15,20 @@ import FileOptionModal from "../components/FileOptionModal";
 import { getOCR } from "../api/FestApi";
 
 // Router
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Spinner
 import { useLoading } from "../contexts/LoadingContext";
+
+// API
+import { saveText, generateImage } from "../api/FestApi";
 
 // SDK
 import { loadTossPayments } from "@tosspayments/payment-sdk";
 import PaymentSuccessModal from "../components/PaymentSuccessModal";
 import { getCLOVA } from "../api/CLOVAApi";
 import showFileOptionModal from "../components/FileOptionModal";
+
 
 const Home = () => {
     const fileInputRef = useRef(null);
@@ -47,50 +53,35 @@ const Home = () => {
     const [isPaymentSuccessModalOpen, setIsPaymentSuccessModalOpen] = useState(false);
     const [isPremiumOCR, setIsPremiumOCR] = useState(false);
 
+    const [imageData, setImageData] = useState(null);
+    const navigate = useNavigate();
+
     // 요약 요청 핸들러
     const handleSummarize = async () => {
-        // if (diaryText.trim().length === 0) return;
-        // setIsSummarizing(true);
-        // setError(null);
-        // try {
-        //     const result = await SummarizeText(diaryText);
-        //     if (result && result.length > 0) {
-        //         setSummaryResult(result.map((item) => item.generated_text).join("\n\n"));
-        //         setIsModalOpen(true);
-        //     }
-        // } catch (error) {
-        //     setError("요약 요청 중 오류가 발생했습니다.");
-        // } finally {
-        //     setIsSummarizing(false);
-        // }
+        if (!diaryText.trim()) {
+            setError("일기 내용을 입력해주세요.");
+            return;
+        }
+
+        setIsSummarizing(true);
+        try {
+            console.log("save_text 요청 시작...");
+            await saveText(diaryText);
+
+            console.log("image/generate 요청 시작...");
+            const result = await generateImage("etri-vilab/koala-700m-llava-cap");
+
+            if (result && result.images) {
+                console.log("이미지 생성 완료!", result.images);
+                navigate("/result", { state: { images: result.images } });
+            }
+        } catch (error) {
+            console.error("이미지 생성 중 오류 발생:", error);
+            setError("이미지 생성 중 오류가 발생했습니다.");
+        } finally {
+            setIsSummarizing(false);
+        }
     };
-
-    // 파일 선택 핸들러 (아무기능 없는 파일선택)
-    // const handleFileChange = async (event) => {
-    //     const file = event.target.files[0];
-    //     if (!file) return;
-
-    //     setIsFileSelected(true);
-    //     setIsLoading(true);
-    //     setError(null);
-
-    //     try {
-    //         const ocrResult = await getOCR(file);
-    //         console.log("OCR 결과 확인:", ocrResult);
-    //         if (ocrResult?.text) {
-    //             setDiaryText((prevText) => prevText + (prevText ? "\n" : "") + ocrResult.text);
-    //         } else {
-    //             console.log("OCR 결과 없음:", ocrResult);
-    //             setError("OCR 결과를 받아오지 못했습니다.");
-    //         }
-    //     } catch (error) {
-    //         console.error("OCR 처리 중 오류 발생:", error);
-    //         setError("OCR 처리 중 오류가 발생했습니다. 다시 시도해주세요.");
-    //     } finally {
-    //         setIsLoading(false);
-    //         setIsFileSelected(false);
-    //     }
-    // };
 
     const handlePayment = async () => {
         try {

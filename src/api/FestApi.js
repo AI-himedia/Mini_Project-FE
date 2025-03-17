@@ -1,7 +1,7 @@
 // src/api/FestApi.js
 import axiosInstance from "./AxiosInstance";
 
-// AI Model OCR (Python FestAPI)
+// AI Model - OCR (Python FestAPI)
 export const getOCR = async (imageFile) => {
     try {
         const formData = new FormData();
@@ -30,4 +30,28 @@ export const getOCR = async (imageFile) => {
     }
 };
 
-// 2. 요약
+// AI Model - Save Text (Python FastAPI)
+export const saveText = async (text) => {
+    try {
+        const response = await axiosInstance.post("/save_text", { text });
+        console.log("save_text 응답:", response.data);
+        return response.data;
+    } catch (error) {
+        console.error("save_text 요청 중 오류 발생:", error);
+        throw error;
+    }
+};
+
+// AI Model - Generate Image (Python FastAPI)
+export const generateImage = async (modelName) => {
+    try {
+        const response = await axiosInstance.post(
+            `/image/generate?model_name=${modelName}`
+        );
+        console.log("image/generate 응답:", response.data);
+        return response.data;
+    } catch (error) {
+        console.error("image/generate 요청 중 오류 발생:", error);
+        throw error;
+    }
+};
