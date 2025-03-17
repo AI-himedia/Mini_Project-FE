@@ -64,6 +64,7 @@ const Home = () => {
         }
 
         setIsSummarizing(true);
+        setIsLoading(true);
         try {
             console.log("save_text 요청 시작...");
             await saveText(diaryText);
@@ -80,6 +81,7 @@ const Home = () => {
             setError("이미지 생성 중 오류가 발생했습니다.");
         } finally {
             setIsSummarizing(false);
+            setIsLoading(false);
         }
     };
 

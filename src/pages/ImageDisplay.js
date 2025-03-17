@@ -15,12 +15,21 @@ const ImageDisplay = () => {
     const BASE_URL = process.env.REACT_APP_API_URL;
     const images = location.state?.images || [];
 
+    // 날짜 관련 변수
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+    const daysOfWeek = ["일", "월", "화", "수", "목", "금", "토"];
+    const dayOfWeek = daysOfWeek[today.getDay()];
+    const formattedDate = `${year} / ${month} / ${day} (${dayOfWeek})`;
+
     return (
         <div className="Home_Container">
             {/* Header */}
             <div className="Home_Header">
                 <div className="Home_Header_Container">
-                    <div className="Home_Date">{new Date().toLocaleDateString()}</div>
+                    <div className="Home_Date">{formattedDate}</div>
                     <div className="Home_BigTitle">AI가 그려준 그림</div>
                     <div className="Home_Description">
                         그림은 최대 3개까지 만들어주며, 맞춤법이 틀리거나 문장이 어색하면 AI가 안 그려줄 수 있습니다.
@@ -54,7 +63,7 @@ const ImageDisplay = () => {
                 pagination={true}
                 modules={[EffectCoverflow, Pagination]}
                 className="mySwiper"
-                style={{ width: "80%", marginTop: "20px" }}
+                style={{ width: "100%", marginTop: "20px" }}
             >
                 {images.length > 0 ? (
                     images.map((img, index) => (

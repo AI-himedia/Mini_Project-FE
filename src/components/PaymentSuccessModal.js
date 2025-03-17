@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
-import "../styles/components/PaymentSuccessModal.css";
 
 const PaymentSuccessModal = ({ isOpen, onClose, onProcessOCR }) => {
     const fileInputRef = useRef(null);
