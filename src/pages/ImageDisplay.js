@@ -1,17 +1,25 @@
+// React 관련 import
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-import "../styles/pages/ImageDisplay.css"
+// 스타일 관련 import
+import "../styles/pages/ImageDisplay.css";
+
+// Swiper 관련 import
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination } from "swiper/modules";
 
+// Swiper 스타일 관련 import
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
+/**
+ * ImageDisplay 컴포넌트
+ * 생성된 이미지를 Swiper 슬라이드를 사용하여 보여주는 페이지
+ */
 const ImageDisplay = () => {
     const location = useLocation();
-    const navigate = useNavigate();
     const BASE_URL = process.env.REACT_APP_API_URL;
     const images = location.state?.images || [];
 
@@ -47,6 +55,7 @@ const ImageDisplay = () => {
 
             <hr/>
 
+            {/* Swiper로 이미지 슬라이드 구현 */}
             <Swiper
                 effect={"coverflow"}
                 grabCursor={true}

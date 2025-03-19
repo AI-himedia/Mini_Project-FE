@@ -1,36 +1,36 @@
 // src/pages.Home.js
 
-// Css
+// 스타일 관련 import
 import "../styles/pages/Home.css";
 
-// React
+// React 관련 import
 import { useState, useRef } from "react";
 
-import ImageDisplay from "./ImageDisplay";
-
-// Components
+// 페이지 및 컴포넌트 import
 import FileOptionModal from "../components/FileOptionModal";
+import PaymentSuccessModal from "../components/PaymentSuccessModal";
 
-// OCR API 요청
-import { getOCR } from "../api/FestApi";
+// API 관련 import
+import { getOCR, generateImage, saveText } from "../api/FestApi";
+import { getCLOVA } from "../api/CLOVAApi";
 
-// Router
+// Router 관련 import
 import { Link, useNavigate } from "react-router-dom";
 
-// Spinner
+// 로딩 스피너 관련 import
 import { useLoading } from "../contexts/LoadingContext";
 
-// API
-import { saveText, generateImage } from "../api/FestApi";
-
-// SDK
+// TossPayments SDK 관련 import
 import { loadTossPayments } from "@tosspayments/payment-sdk";
-import PaymentSuccessModal from "../components/PaymentSuccessModal";
-import { getCLOVA } from "../api/CLOVAApi";
 import showFileOptionModal from "../components/FileOptionModal";
 
-
+/**
+ * Home 컴포넌트
+ * 사용자가 일기를 작성하고, 이미지 생성을 요청하거나 OCR 기능을 사용할 수 있는 페이지
+ */
 const Home = () => {
+
+    // 상태 관련 변수 및 ref
     const fileInputRef = useRef(null);
     const { setIsLoading } = useLoading();
 
@@ -49,11 +49,8 @@ const Home = () => {
     const [error, setError] = useState(null);
     const [isSummarizing, setIsSummarizing] = useState(false);
     const [isFileOptionModalOpen, setIsFileOptionModalOpen] = useState(false);
-
     const [isPaymentSuccessModalOpen, setIsPaymentSuccessModalOpen] = useState(false);
     const [isPremiumOCR, setIsPremiumOCR] = useState(false);
-
-    const [imageData, setImageData] = useState(null);
     const navigate = useNavigate();
 
     // 요약 요청 핸들러
@@ -85,6 +82,7 @@ const Home = () => {
         }
     };
 
+    // 결제 처리 핸들러
     const handlePayment = async () => {
         try {
             const tossPayments = await loadTossPayments(process.env.REACT_APP_PAYMENT_API_KEY);
